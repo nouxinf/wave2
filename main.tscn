@@ -19,6 +19,7 @@ motion_mode = 1
 script = ExtResource("1_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2100075042]
+unique_name_in_owner = true
 position = Vector2(94, 97)
 scale = Vector2(0.16283117, 0.1628312)
 texture = ExtResource("1_ig7tw")
@@ -33,6 +34,7 @@ polygon = PackedVector2Array(67, 120, 94, 74, 120, 120)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1112475862]
 position = Vector2(575, 325)
+position_smoothing_enabled = true
 script = ExtResource("3_h2yge")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=983544743 groups=["obstacles"]]

@@ -7,3 +7,4 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	global_position.y = locked_y
+	global_position.x = %Sprite2D.global_position.x + 500

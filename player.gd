@@ -11,15 +11,29 @@ var running = false
 @onready var player_collision_area: Area2D = %PlayerCollisionArea
 
 func _physics_process(_delta: float) -> void:
-	if !running:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if game_over.visible:
+		if Input.is_action_just_pressed("click"):
+			reset_game()
+		return
+
+	if not running:
+		if Input.is_action_just_pressed("click"):
 			running = true
 			click_anywhere_text.visible = false
-	if running:
-		var dir := -ANGLE if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) else ANGLE
-		velocity = Vector2.RIGHT.rotated(dir) * SPEED
-		sprite.rotation = dir + PI / 2
-		move_and_slide()
+		return
+
+	var dir := -ANGLE if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) else ANGLE
+	velocity = Vector2.RIGHT.rotated(dir) * SPEED
+	sprite.rotation = dir + PI / 2
+	move_and_slide()
+
+
+func reset_game() -> void:
+	global_position = Vector2(94, 97)
+	sprite.rotation = 0
+	velocity = Vector2.ZERO
+	game_over.visible = false
+	click_anywhere_text.visible = true
 
 
 func _on_collision_area_area_entered(area: Area2D) -> void:

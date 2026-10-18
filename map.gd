@@ -10,11 +10,11 @@ extends Node2D
 const shapeWidths = [50, 50, 300, 50]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	const map = [3]
+	const map = [3, 2, 1, 0]
 	var x = 400
 	for i in map:
 		var shape_instance = shapes[i].instantiate()
-		shape_instance.global_position = Vector2(x, 648)
+		shape_instance.global_position = Vector2(x, 0)
 		get_tree().current_scene.add_child(shape_instance)
 		x += shapeWidths[i] + 500
 

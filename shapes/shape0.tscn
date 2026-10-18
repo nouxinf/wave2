@@ -7,6 +7,7 @@ size = Vector2(50.44301, 443.68784)
 scale = Vector2(1, 1.0000002)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=44238216 groups=["obstacles"]]
+position = Vector2(0, 648)
 scale = Vector2(2.0022597, 0.9916878)
 
 [node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=283396815]

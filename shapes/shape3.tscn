@@ -6,6 +6,7 @@ size = Vector2(50, 450)
 [node name="Node2D" type="Node2D" unique_id=132690509]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=44238216 groups=["obstacles"]]
+position = Vector2(0, 648)
 scale = Vector2(2, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=283396815]
@@ -18,7 +19,7 @@ scale = Vector2(1, 1.0000007)
 shape = SubResource("RectangleShape2D_00gvo")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1768242851 groups=["obstacles"]]
-position = Vector2(0, -400)
+position = Vector2(0, 248)
 scale = Vector2(2, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Area2D2" unique_id=1148454619]

@@ -2,16 +2,18 @@ extends Node2D
 
 @export var shapes: Array[PackedScene] = [
 	preload("res://shapes/shape0.tscn"),
-	preload("res://shapes/shape1.tscn")
+	preload("res://shapes/shape1.tscn"),
+	preload("res://shapes/shape2.tscn"),
+	preload("res://shapes/shape3.tscn")
 ]
 
-const shapeWidths = [50, 50]
+const shapeWidths = [50, 50, 300, 50]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	const map = [0, 1, 0]
+	const map = [3]
 	var x = 400
 	for i in map:
-		var shape_instance = shapes[map[i]].instantiate()
+		var shape_instance = shapes[i].instantiate()
 		shape_instance.global_position = Vector2(x, 648)
 		get_tree().current_scene.add_child(shape_instance)
 		x += shapeWidths[i] + 500

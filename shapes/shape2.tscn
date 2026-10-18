@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jlpq14xtyi0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00gvo"]
+size = Vector2(50, 450)
+
+[node name="Node2D" type="Node2D" unique_id=132690509]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=44238216 groups=["obstacles"]]
+position = Vector2(0, -198)
+scale = Vector2(12, 0.992)
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=283396815]
+offset_top = -450.0
+offset_right = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=501534031]
+position = Vector2(25, -225)
+scale = Vector2(1, 1.0000007)
+shape = SubResource("RectangleShape2D_00gvo")

@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ce7lkro7j354k" path="res://player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://c8evufp5wdjdm" path="res://player.svg" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://e0momdqt6scf" path="res://map.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cp416mfhl3tw1" path="res://camera.gd" id="3_h2yge"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_00gvo"]
-size = Vector2(58, 282)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
 font_size = 100
@@ -13,6 +11,7 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1880328821]
+script = ExtResource("1_lquwl")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=545443176]
 motion_mode = 1
@@ -31,23 +30,6 @@ scale = Vector2(6.1413302, 6.1413293)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Sprite2D/PlayerCollisionArea" unique_id=1482124100]
 polygon = PackedVector2Array(67, 120, 94, 74, 120, 120)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1112475862]
-position = Vector2(575, 325)
-position_smoothing_enabled = true
-script = ExtResource("3_h2yge")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=983544743 groups=["obstacles"]]
-position = Vector2(373, 610)
-
-[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=1426608913]
-offset_top = -240.0
-offset_right = 51.0
-offset_bottom = 40.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=993748385]
-position = Vector2(25, -101)
-shape = SubResource("RectangleShape2D_00gvo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=396930989]
 
@@ -72,5 +54,10 @@ text = "Click anywhere to begin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1112475862]
+position = Vector2(575, 325)
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("3_h2yge")
+
 [connection signal="area_entered" from="Player/Sprite2D/PlayerCollisionArea" to="Player" method="_on_collision_area_area_entered"]
-[connection signal="area_entered" from="Area2D" to="Player" method="_on_obstacle_area_entered"]
